@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "dist",
+    "lib": ["ES6"],
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "paths": {
+      "@entities/*": ["./src/entities/*"],
+      "@constants": ["./src/utils/constants"],
+      "@structures/*": ["./src/structures/*"],
+      "@templates/*": ["./src/templates/*"]
+    },
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
