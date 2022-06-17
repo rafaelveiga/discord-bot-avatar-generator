@@ -1,4 +1,5 @@
 import * as discord from "discord.js";
+import commands from "./commands";
 
 export default class Bot {
   private client: discord.Client;
@@ -17,7 +18,13 @@ export default class Bot {
     });
 
     this.client.on("messageCreate", (message: discord.Message) => {
-      console.log(message.cleanContent);
+      commands.forEach((CommandClass) => {
+        const commandInstance = new CommandClass();
+
+        if (commandInstance.isValid(message.content)) {
+          commandInstance.execute(message);
+        }
+      });
     });
 
     this.client.login(process.env.DISCORD_BOT_TOKEN);
