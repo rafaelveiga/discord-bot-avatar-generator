@@ -1,0 +1,29 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties"],
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@entities": "./src/entities",
+          "@constants": "./src/utils/constants",
+          "@structures": "./src/structures",
+          "@templates": "./src/templates"
+        }
+      }
+    ]
+  ]
+}

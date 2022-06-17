@@ -25,6 +25,8 @@
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.18.5",
     "@babel/node": "^7.18.5",
+    "@babel/plugin-proposal-class-properties": "^7.17.12",
+    "@babel/plugin-proposal-decorators": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-typescript": "^7.17.12",
     "babel-plugin-module-resolver": "^4.1.0",
@@ -38,6 +40,7 @@
   },
   "dependencies": {
     "discord.js": "^13.8.0",
+    "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "puppeteer": "^14.4.0"
   }
