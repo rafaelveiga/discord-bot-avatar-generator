@@ -6,7 +6,7 @@ export default class Bot {
 
   public start(): void {
     this.client = new discord.Client({
-      intents: discord.Intents.FLAGS.GUILD_MESSAGES,
+      intents: ["GUILDS", "GUILD_MESSAGES", "DIRECT_MESSAGES"],
     });
 
     this.client.once("ready", () => {
@@ -14,6 +14,10 @@ export default class Bot {
       console.log("> ------------------");
       console.log("> Bot ready!");
       console.log("> ------------------");
+    });
+
+    this.client.on("messageCreate", (message: discord.Message) => {
+      console.log(message.cleanContent);
     });
 
     this.client.login(process.env.DISCORD_BOT_TOKEN);
