@@ -1,5 +1,5 @@
 import BaseCommand from "../structs/BaseCommand";
-import { Message } from "discord.js";
+import { Message, MessageAttachment, MessagePayload } from "discord.js";
 import SimpleAvatarTemplate from "../avatars/SimpleAvatarTemplate";
 
 export default class SimpleAvatar extends BaseCommand {
@@ -18,7 +18,13 @@ export default class SimpleAvatar extends BaseCommand {
 
     await avatar.compile();
 
-    message.author.username;
-    message.channel.send(`pong`);
+    message.reply({
+      files: [
+        {
+          // TODO: Improve how we reach the image location
+          attachment: "./dist/avatars/generated/SimpleAvatar.png",
+        },
+      ],
+    });
   }
 }
