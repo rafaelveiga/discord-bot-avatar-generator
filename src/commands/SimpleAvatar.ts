@@ -1,5 +1,6 @@
 import BaseCommand from "../structs/BaseCommand";
 import { Message } from "discord.js";
+import SimpleAvatarTemplate from "../avatars/SimpleAvatarTemplate";
 
 export default class SimpleAvatar extends BaseCommand {
   public name: string = "SimpleAvatar";
@@ -9,7 +10,15 @@ export default class SimpleAvatar extends BaseCommand {
     return /^!avatar simple\b/g.test(message);
   }
 
-  execute(message: Message): void {
+  async execute(message: Message): Promise<void> {
+    console.log(message.author);
+    const avatar = new SimpleAvatarTemplate({
+      username: message.author.username,
+    });
+
+    await avatar.compile();
+
+    message.author.username;
     message.channel.send(`pong`);
   }
 }
